@@ -1,24 +1,31 @@
-﻿namespace Maui.GoogleAuth;
+﻿using Maui.GoogleAuth.Services;
+
+namespace Maui.GoogleAuth;
 
 public partial class MainPage : ContentPage
 {
 	int count = 0;
-
-	public MainPage()
+	private IGoogleAuthService _googleAuthService;
+	public MainPage(IGoogleAuthService _googleAuthService)
 	{
 		InitializeComponent();
-	}
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
+
+    protected override void OnAppearing()
+    {
+        _googleAuthService = new GoogleAuthService();
+    }
+    private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
+		var user = await _googleAuthService.AuthenticateAsync();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		if(user != null)
+		{
+			IdLbl.Text = "ID - "+ user.Id;
+			EmailLbl.Text = "Email - " + user.Email;
+			UsernameLbl.Text = "Name - " + user.FullName;
+		}
 	}
 }
 

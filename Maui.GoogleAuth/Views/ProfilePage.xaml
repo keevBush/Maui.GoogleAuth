@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.GoogleAuth.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Profile Page">
+    <VerticalStackLayout>
+        <Label
+            Margin="0,20"
+            HorizontalOptions="Center"
+            Style="{StaticResource LabelTitle}"
+            Text="Congratulation !!!" />
+        <Label
+            Margin="0,0,0,10"
+            FontSize="15"
+            HorizontalOptions="Center"
+            Text="you are loggin in correctly" />
+
+        <Label FontSize="15" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Username : " />
+                    <Span
+                        x:Name="spName"
+                        FontAttributes="Bold"
+                        Text="Kevin Bushiri" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label FontSize="15" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="ID : " />
+                    <Span
+                        x:Name="spID"
+                        FontAttributes="Bold"
+                        Text="ID" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label FontSize="15" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Email : " />
+                    <Span
+                        x:Name="spEmail"
+                        FontAttributes="Bold"
+                        Text="test@test.com" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Button
+            Margin="0,10"
+            BackgroundColor="{StaticResource Primary}"
+            Clicked="Button_Clicked"
+            HorizontalOptions="Center"
+            Text="Logout"
+            TextColor="{StaticResource White}" />
+    </VerticalStackLayout>
+</ContentPage>
