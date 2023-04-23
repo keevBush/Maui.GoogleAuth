@@ -27,7 +27,7 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <Label FontSize="15" HorizontalOptions="Center">
+        <Label FontSize="15" HorizontalOptions="Center" LineBreakMode="TailTruncation" MaxLines="2">
             <Label.FormattedText>
                 <FormattedString>
                     <Span Text="ID : " />

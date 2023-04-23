@@ -15,7 +15,7 @@
 		<ApplicationTitle>Maui.GoogleAuth</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.maui.googleauth</ApplicationId>
+		<ApplicationId>com.bush.journal</ApplicationId>
 		<ApplicationIdGuid>a54edc12-26d6-4c15-9ea5-117c1a0d50ab</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -28,6 +28,36 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<AndroidSigningKeyStore>maui.google-auth.keystore</AndroidSigningKeyStore>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>maui.123.maui</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>maui.123.maui</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>maui.123.maui</AndroidSigningStorePass>
+	  <AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>maui.123.maui</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+	  <ProvisioningType>manual</ProvisioningType>
+	  <CodesignKey>iPhone Developer</CodesignKey>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <MtouchProfiling>True</MtouchProfiling>
+	  <CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <MtouchProfiling>True</MtouchProfiling>
+	  <CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -49,13 +79,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Platforms\Android\google-services.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <GoogleServicesJson Include="Platforms\Android\google-services.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <PackageReference Include="Xamarin.Google.iOS.SignIn" Version="5.0.2.4"></PackageReference>
+  </ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
 	  <PackageReference Include="Xamarin.GooglePlayServices.Auth">
 	    <Version>120.4.0.1</Version>
 	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SplashscreenPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

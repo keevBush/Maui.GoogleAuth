@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Maui.GoogleAuth.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Maui.GoogleAuth;
 

@@ -1,4 +1,5 @@
 ﻿using Maui.GoogleAuth.Services;
+using Maui.GoogleAuth.Views;
 
 namespace Maui.GoogleAuth;
 
@@ -18,14 +19,11 @@ public partial class MainPage : ContentPage
     }
     private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		var user = await _googleAuthService.AuthenticateAsync();
+		var currentUser = await _googleAuthService.AuthenticateAsync();
 
-		if(user != null)
-		{
-			IdLbl.Text = "ID - "+ user.Id;
-			EmailLbl.Text = "Email - " + user.Email;
-			UsernameLbl.Text = "Name - " + user.FullName;
-		}
-	}
+		if(currentUser != null)
+            Application.Current.MainPage = new NavigationPage(new ProfilePage(_googleAuthService, currentUser));
+
+    }
 }
 

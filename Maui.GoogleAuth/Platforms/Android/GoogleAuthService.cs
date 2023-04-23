@@ -81,8 +81,12 @@ namespace Maui.GoogleAuth.Services
         }
         private void MainActivity_ResultGoogleAuth(object sender, (bool Success, GoogleSignInAccount Account) e)
         {
+            if(_taskCompletionSource != null)
+                if(_taskCompletionSource?.Task.Status == TaskStatus.RanToCompletion)
+                    _taskCompletionSource = new TaskCompletionSource<UserDTO>();
+            
             if (e.Success)
-                _taskCompletionSource.SetResult(new UserDTO
+                _taskCompletionSource?.SetResult(new UserDTO
                 {
                     Email = e.Account.Email,
                     FullName = $"{e.Account.DisplayName}",
@@ -90,7 +94,7 @@ namespace Maui.GoogleAuth.Services
                     UserName = e.Account.GivenName
                 });
             else
-                _taskCompletionSource.SetException(new Exception("Error"));
+                _taskCompletionSource?.SetException(new Exception("Error"));
         }
 
         public Task<UserDTO> AuthenticateAsync()

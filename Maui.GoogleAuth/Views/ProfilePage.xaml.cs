@@ -18,8 +18,11 @@ public partial class ProfilePage : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+		var result = await DisplayActionSheet("Logout", "Cancel", "Logout");
+		if (result.ToLower() != "Logout".ToLower())
+			return;
+		
 		await _googleAuthService.LogoutAsync();
-		await Task.Delay(1000);
 		Application.Current.MainPage = new MainPage(_googleAuthService);
     }
 }

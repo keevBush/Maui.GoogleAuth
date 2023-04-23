@@ -34,9 +34,6 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
-            <Label x:Name="IdLbl" TextColor="White"/>
-            <Label x:Name="EmailLbl" TextColor="White"/>
-            <Label x:Name="UsernameLbl" TextColor="White"/>
 
         </VerticalStackLayout>
     </ScrollView>

@@ -1,4 +1,6 @@
-﻿namespace Maui.GoogleAuth;
+﻿using Maui.GoogleAuth.Views;
+
+namespace Maui.GoogleAuth;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new SplashscreenPage();
 	}
 }
