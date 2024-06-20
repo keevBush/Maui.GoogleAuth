@@ -43,8 +43,7 @@ namespace Maui.GoogleAuth.Services
 
             // Config Auth Option
             _gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
-                    //.RequestServerAuthCode("550657561963-7iov7dcp0hu034r29q6m3jrpi1pcnj4v.apps.googleusercontent.com")
-                    .RequestIdToken("550657561963-gu6o6a0sn797hunbp72p8051vbi7n641.apps.googleusercontent.com")
+                    .RequestIdToken("-")
                     .RequestEmail()
                     .RequestId()
                     .RequestProfile()
