@@ -2,40 +2,40 @@
   "project_info": {
     "project_number": "550657561963",
     "project_id": "journal-debug-2dc04",
-    "storage_bucket": "journal-debug-2dc04.appspot.com"
+    "storage_bucket": "-"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:550657561963:android:ac750ee44fd1d02a44e82e",
+        "mobilesdk_app_id": "-",
         "android_client_info": {
           "package_name": "com.bush.journal.mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "550657561963-7iov7dcp0hu034r29q6m3jrpi1pcnj4v.apps.googleusercontent.com",
+          "client_id": "-",
           "client_type": 1,
           "android_info": {
             "package_name": "com.bush.journal.mobile",
-            "certificate_hash": "93eb4c3cadf88d391a9436b0a14c6ada22db2976"
+            "certificate_hash": "-"
           }
         },
         {
-          "client_id": "550657561963-265g00e0obnbpjk2u1eoiqdud8ovntm7.apps.googleusercontent.com",
+          "client_id": "-",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPM09aNfN1TGCkbX_o16mWMUb2cUO0KJY"
+          "current_key": "-"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "550657561963-265g00e0obnbpjk2u1eoiqdud8ovntm7.apps.googleusercontent.com",
+              "client_id": "-",
               "client_type": 3
             }
           ]
